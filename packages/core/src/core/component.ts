@@ -138,7 +138,7 @@ export abstract class KComponent {
 
   beforeMount() {}
 
-  mount() {
+  private mount() {
     effect(
       () => {
         this.patch();
@@ -215,7 +215,7 @@ function createComponentReactive(componentObj) {
   for (const key in componentObj) {
     if (Object.prototype.hasOwnProperty.call(componentObj, key)) {
       const element = componentObj[key];
-      if (!key.startsWith('$') && !element?.isDomRef) {
+      if (!element.is_kp_computed && !key.startsWith('$') && !element?.isDomRef && !(element instanceof Set) && !(element instanceof Map)) {
         obj[key] = element;
       }
     }
@@ -228,6 +228,7 @@ function createComponentReactive(componentObj) {
       },
       set(value) {
         reactiveData[key] = value;
+        componentObj.updated();
       },
     });
   }
@@ -245,6 +246,7 @@ function createComponentPropsReactive(target, key, readonly?: boolean, outValue?
         console.error(new Error(`Prop ${key} 属性不能修改`));
       } else {
         value.value = newValue;
+        target.updated();
       }
     },
   });

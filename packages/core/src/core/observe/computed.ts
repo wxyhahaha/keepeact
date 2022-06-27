@@ -21,5 +21,10 @@ export function computed(getter) {
       return value;
     },
   };
+  Object.defineProperty(obj, 'is_kp_computed', {
+    value: true,
+    enumerable: false,
+    writable: false,
+  });
   return obj;
 }
