@@ -1,0 +1,27 @@
+{
+  "name": "keepeact-cli",
+  "version": "1.0.11",
+  "description": "cli",
+  "main": "index.js",
+  "bin": {
+    "kp-cli": "bin/index.js"
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "kp-cli": "node index.js"
+  },
+  "author": "wuxunyu",
+  "license": "ISC",
+  "dependencies": {
+    "download-git-repo": "^3.0.2"
+  },
+  "devDependencies": {
+    "commander": "^8.0.0"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "index.js",
+    "index-create.js"
+  ]
+}

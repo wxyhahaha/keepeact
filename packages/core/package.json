@@ -1,0 +1,23 @@
+{
+  "name": "keepeact",
+  "version": "1.0.0",
+  "description": "mvvm",
+  "main": "dist/keepeact.es.js",
+  "module": "dist/keepeact.es.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist",
+    "types"
+  ],
+  "repository": "https://gitee.com/aHon00/keepeact.git",
+  "author": "wuxunyu",
+  "license": "MIT",
+  "scripts": {
+    "build": "vite build && tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "typescript": "^4.6.4",
+    "vite": "^2.9.12"
+  }
+}
