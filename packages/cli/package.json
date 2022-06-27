@@ -1,14 +1,14 @@
 {
-  "name": "keepeact-cli",
-  "version": "1.0.11",
-  "description": "cli",
+  "name": "keept-cli",
+  "version": "1.0.1",
+  "description": "keepact-cli",
   "main": "index.js",
   "bin": {
-    "kp-cli": "bin/index.js"
+    "kp": "bin/index.js"
   },
   "scripts": {
     "tsc": "tsc",
-    "kp-cli": "node index.js"
+    "kp": "node index.js"
   },
   "author": "wuxunyu",
   "license": "ISC",
