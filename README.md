@@ -5,19 +5,19 @@
 # 开始
 
 ```bash
-yarn kp-cli -g
+yarn keept-cli -g
 ```
 
 或
 
 ```bash
-npm install kp-cli -g
+npm install keept-cli -g
 ```
 
 # 创建安装
 
 ```bash
-kp-cli create [filename]
+kp create [filename]
 &
 yarn
 ```

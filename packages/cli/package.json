@@ -1,6 +1,6 @@
 {
   "name": "keept-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "keepact-cli",
   "main": "index.js",
   "bin": {
@@ -13,11 +13,10 @@
   "author": "wuxunyu",
   "license": "ISC",
   "dependencies": {
-    "download-git-repo": "^3.0.2"
-  },
-  "devDependencies": {
+    "download-git-repo": "^3.0.2",
     "commander": "^8.0.0"
   },
+  "devDependencies": {},
   "files": [
     "dist",
     "bin",
