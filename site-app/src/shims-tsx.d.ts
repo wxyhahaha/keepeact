@@ -1,4 +1,4 @@
-import { VNode } from 'keepeact-core';
+import { VNode } from 'keepeact';
 
 declare global {
   namespace JSX {

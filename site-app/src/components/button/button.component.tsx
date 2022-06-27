@@ -38,6 +38,9 @@ export default class KButton extends ValueComponent {
       </button>
     );
   }
+  destroy() {
+    console.log('摧毁');
+  }
   render() {
     return (
       <div id="wuxunyu" ref="button">

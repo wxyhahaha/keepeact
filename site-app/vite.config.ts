@@ -13,7 +13,7 @@ export default defineConfig({
   },
   esbuild: {
     jsxFactory: 'createVNode',
-    jsxInject: "import { createVNode } from 'keepeact-core';",
+    jsxInject: "import { createVNode } from 'keepeact';",
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json'],

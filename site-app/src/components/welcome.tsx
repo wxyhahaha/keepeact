@@ -3,11 +3,13 @@ import KButton from './button/button.component';
 
 @Component()
 export default class WelCome extends ValueComponent {
+  aa = 1;
   buttonDemo() {
     return (
       <KButton
         valueChange={(e) => {
           this.onChange(e);
+          this.aa++;
         }}
       ></KButton>
     );
@@ -18,7 +20,17 @@ export default class WelCome extends ValueComponent {
         <p>WelCome to Keepeact, I wish you like it.</p>
         <p>demo: </p>
         <ul>
-          <li>{this.buttonDemo()}</li>
+          <li>
+            <button
+              onClick={() => {
+                this.aa++;
+                if (this.aa > 10) {
+                  this.aa = 0;
+                }
+              }}
+            ></button>
+          </li>
+          <li>{this.aa < 4 ? this.buttonDemo() : 'aaaaaaaaaaaaa'}</li>
         </ul>
       </div>
     );

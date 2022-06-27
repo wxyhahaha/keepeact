@@ -1,6 +1,6 @@
 import { isEmpty } from './share';
 import Dom from './vdom';
-import { isVText, VNode } from './vnode';
+import { isVComponent, isVDom, isVText, VNode } from './vnode';
 
 export default class Diff {
   constructor(private dom: Dom) {}
@@ -46,7 +46,7 @@ export default class Diff {
       if (isVText(oldVNode) && newVNode.text !== oldVNode.text) {
         oldVNode.elm.data = newVNode.text;
       }
-    } else {
+    } else if (isVDom(oldVNode) && isVDom(newVNode)) {
       this.dom.updateVDom(elm, oldVNode, newVNode);
       if (!isEmpty(oldVNode.children) && !isEmpty(newVNode.children) && oldVNode.children !== newVNode.children) {
         //当新旧节点children同时存在时,精细化比较
@@ -61,6 +61,10 @@ export default class Diff {
         // 当旧节点有children，新节点没有children时，删除节点
         this.dom.removeChildren(elm);
       }
+    }
+
+    if (isVComponent(oldVNode) && isVComponent(newVNode)) {
+      newVNode.component = oldVNode.component;
     }
   }
 
@@ -135,6 +139,7 @@ export default class Diff {
       // 销毁
       for (; oldStartIndx <= oldEndIndx; oldStartIndx++) {
         if (oldChild[oldStartIndx]) {
+          this.dom.destroyComponents(oldChild[oldStartIndx]);
           this.dom.removeChild(parentNode, oldChild[oldStartIndx].elm);
         }
       }

@@ -63,6 +63,13 @@ export default class Dom {
     }
   }
 
+  destroyComponents(vnode: VNode) {
+    if (isVComponent(vnode)) {
+      vnode.component?.destroy();
+      vnode.children.forEach((c) => this.destroyComponents(c));
+    }
+  }
+
   nextSibling(node: Node) {
     return node.nextSibling;
   }

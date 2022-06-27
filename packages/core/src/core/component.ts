@@ -167,6 +167,7 @@ export abstract class KComponent {
     if (!newVNode) {
       newVNode = createTextVNode('');
     }
+
     this.$diff.patch(this.$vNode, newVNode);
 
     this.$vNode = newVNode;
