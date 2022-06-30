@@ -17,13 +17,13 @@ export default class Button extends ValueComponent {
 # 开始
 
 ```bash
-yarn keept-cli -g
+yarn keepeact-cli -g
 ```
 
 或
 
 ```bash
-npm install keept-cli -g
+npm install keepeact-cli -g
 ```
 
 # 创建安装
