@@ -4,6 +4,8 @@
 
 # demo 一览
 
+>在线演示： [demo](https://wxyhahaha.github.io/keepeact/demo/)
+
 ```tsx
 import { ValueComponent, Component } from 'keepeact';
 @Component()
