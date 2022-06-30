@@ -1,6 +1,6 @@
 {
   "name": "keepeact",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "mvvm",
   "main": "dist/keepeact.es.js",
   "module": "dist/keepeact.es.js",
