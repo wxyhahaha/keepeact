@@ -19,12 +19,6 @@ export default class Button extends ValueComponent {
 # 开始
 
 ```bash
-yarn keepeact-cli -g
-```
-
-或
-
-```bash
 npm install keepeact-cli -g
 ```
 
