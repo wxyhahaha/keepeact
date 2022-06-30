@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-const path = require('path');
+var path = require('path');
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -7,9 +7,16 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: './src/index.ts',
+      output: {
+        format: 'umd',
+      },
     },
     outDir: 'dist',
     assetsDir: '',
+    lib: {
+      entry: './src/index.ts',
+      name: 'Keepeact',
+    },
   },
   esbuild: {
     jsxFactory: 'createVNode',

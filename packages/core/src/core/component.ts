@@ -62,7 +62,7 @@ export function Prop() {
 
 export function Ref(key: string) {
   return createDecorator(function (ctx, target, name) {
-    ctx[name] = { isDomRef: true };
+    ctx[name] = { is_kp_DomRef: true };
     ctx.$nextTick(() => {
       ctx[name] = ctx.$refs[key];
     });
@@ -215,7 +215,9 @@ function createComponentReactive(componentObj) {
   for (const key in componentObj) {
     if (Object.prototype.hasOwnProperty.call(componentObj, key)) {
       const element = componentObj[key];
-      if (!element.is_kp_computed && !key.startsWith('$') && !element?.isDomRef && !(element instanceof Set) && !(element instanceof Map)) {
+      const isComputed = typeof element === 'object' && element.is_kp_computed;
+      const isDomRef = typeof element === 'object' && element.is_kp_DomRef;
+      if (!key.startsWith('$') && !isComputed && !isDomRef && !(element instanceof Set) && !(element instanceof Map)) {
         obj[key] = element;
       }
     }
@@ -253,10 +255,10 @@ function createComponentPropsReactive(target, key, readonly?: boolean, outValue?
   return value;
 }
 
-export function createDecorator(factory: (ctx: KComponent, ...a) => any, isDomRef?: boolean) {
+export function createDecorator(factory: (ctx: KComponent, ...a) => any, is_kp_DomRef?: boolean) {
   return function (...rest) {
     const [target] = rest;
-    const props = isDomRef ? '$RefDecorators' : '$Decorators';
+    const props = is_kp_DomRef ? '$RefDecorators' : '$Decorators';
     (target[props] || (target[props] = [])).push((ctx) => factory(ctx, ...rest));
   };
 }
