@@ -1,6 +1,6 @@
-const { existsSync } = require('./utils');
+const { existsSync } = require('../utils');
 const [fileName] = process.argv.slice(2);
-const config = require('./config');
+const config = require('../config');
 function download(path) {
   console.log(`${path} 生成中....`);
   const d = require('download-git-repo');

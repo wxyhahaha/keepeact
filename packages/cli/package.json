@@ -1,10 +1,11 @@
 {
   "name": "keepeact-cli",
-  "version": "1.1.0",
+  "version": "1.1.4",
   "description": "keepeact-cli",
   "main": "index.js",
   "bin": {
-    "kp": "bin/index.js"
+    "kp": "bin/index.js",
+    "kp create": "bin/index-create.js"
   },
   "scripts": {
     "tsc": "tsc",
